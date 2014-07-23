@@ -48,3 +48,13 @@ public class GeoMapper extends Mapper<Object, Text, Text, IntWritable>
     }
 
 }
+
+
+
+
+
+
+
+
+
+

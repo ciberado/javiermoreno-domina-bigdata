@@ -1,0 +1,16 @@
+{
+    "name": "RestAPI",
+    "version": "0.0.1",
+    "author": "Javi Moreno",
+    "description": "Demo javascript/json full stack",
+    "private": true,
+    "scripts": {
+        "start": "node ./server.js"
+    },
+    "dependencies" : {
+        "express"  : "3.3.x",
+        "mongodb"  : "*",
+        "memcache" : "*"
+    },
+    "license": "Apache 2"
+}

@@ -24,7 +24,7 @@ public class MainConsumer {
 		props.put("", "");
 		// permite identificar consumidores: kafka recuerda el offset del último 
 		// mensaje recuperado por un groupid particular
-		props.put("groupid", "tweetsGroup");
+		props.put("groupid", "tweetsGroup2");
 
 		String topicName = "tweets";
 

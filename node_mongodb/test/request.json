@@ -1,0 +1,8 @@
+{
+    "nombre" : "abcde",
+    "fecha" : "2014-08-01T11:00",
+    "coordenadas" : {
+        "lat" : 41.2,
+        "lon" : 2.1
+    }
+}

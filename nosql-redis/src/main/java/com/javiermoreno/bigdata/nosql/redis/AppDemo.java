@@ -20,22 +20,21 @@ import redis.clients.jedis.Tuple;
 public class AppDemo {
 
     public static void main(String[] args) {
-        String[] names = {"Alice", "Bob", "Charly", "Dave", "Evelen", "Frank", "Geani", "Jack", "Kunt"};
+        String[] names = {"Alice", "Bob", "Charly", "Dave", "Evelen", "Frank", "Geani", "John", "Kunt"};
         JedisPool pool = new JedisPool(new JedisPoolConfig(), "localhost");
 
         Jedis jedis = null;
         try {
             jedis = pool.getResource();
-            
+
             // key / value
             jedis.set("nameCount", String.valueOf(names.length));
             int nameCount = Integer.valueOf(jedis.get("nameCount"));
             System.out.format("Número de nombres diferentes: %s.%n%n", nameCount);
-            
-            
+
             // key / sorted set
-            for (int i=0; i < 100; i++) {
-                String runnerName = names[(int) (Math.random()*names.length)] + "_" + (int) (Math.random()*10);
+            for (int i = 0; i < 100; i++) {
+                String runnerName = names[(int) (Math.random() * names.length)] + "_" + (int) (Math.random() * 10);
                 double weight = Math.ceil(Math.random() * 1000);
                 jedis.zadd("runnersRank", weight, runnerName);
             }
@@ -45,25 +44,23 @@ public class AppDemo {
                 System.out.format("%s (%s) ", currentRunnerScore.getElement(), currentRunnerScore.getScore());
             }
             System.out.format(".%n%n");
-            
+
             // key / hash
             Map<String, String> alice = new HashMap<String, String>();
             alice.put("nif", "12345678A");
             alice.put("nombre", "Alice");
             alice.put("apellidos", "Wonderland");
             jedis.hmset(alice.get("nif"), alice);
-            
+
             Map<String, String> persona = jedis.hgetAll("12345678A");
             System.out.println("Alice: " + persona + "\n");
-            
-            
+
         } finally {
             if (null != jedis) {
                 jedis.close();
             }
         }
 
-        
         pool.destroy();
 
     }
