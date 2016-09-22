@@ -39,10 +39,7 @@ public class TweetStreamClient {
 		BlockingQueue<String> processorQueue = new LinkedBlockingQueue<String>(10000);
 		BlockingQueue<Event> eventQueue = new LinkedBlockingQueue<Event>(10000);
 		// ESTOS DATOS NO DEBERÍAN HARDCODEARSE!!!
-		Authentication hosebirdAuth = new OAuth1("yyc3Ppu7EtgdGlLQO1hELg", 
-				                                 "3gScwZQdx0Wr27K9TkNwGzKABz3JECm0TopwPLxpW4",
-		                                         "132851687-YwcpaWaRsjY7UqyeGGAzu26v9v2LL9CMNPV8ekJe", 
-		                                         "KiTBN70lUKKQXvK9lKXkfJI3em2HeFGlrhvgIz8w");		
+		Authentication hosebirdAuth = new OAuth1("<WRITE A REAL KEY HERE>");		
 		//Authentication hosebirdAuth = new BasicAuth("ciberado", "");
 
 		StatusesFilterEndpoint endPoint = new StatusesFilterEndpoint()
